@@ -28,9 +28,6 @@
       
              - name: Creating K8s Cluster
                shell: export KOPS_FEATURE_FLAGS=AlphaAllowGCE && kops update cluster {{cluster_name.stdout}}.k8s.local --state gs://{{cluster_name.stdout}}/ --yes
-
-             - name: Running Kubectl command
-               shell: kubectl get po --all-namespaces
       
              - name: Logging Cluster Name inside /temp/run_id/gcp_cluster/
               #  shell: mkdir -p /tmp/{{ ansible_date_time.date }}/{{ build_number }}/testrail/cases/{{ create_cluster_case_id }} && touch /tmp/{{ ansible_date_time.date }}/{{ build_number }}/testrail/cases/clusters
