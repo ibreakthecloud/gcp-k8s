@@ -12,7 +12,10 @@
 
    tasks:
      - name: kubectl get no
-       shell: kubectl get nodes -o wide
+       shell: kubectl get nodes -o wide > kgn.txt
+       
+     - name: Echoing Command from txt file
+       shell: cat kgn.txt
     #  - name: test
     #    shell: cat /tmp/{{ ansible_date_time.date }}/3/testrail/cases/15/clusters
     #    register: cluster_name
