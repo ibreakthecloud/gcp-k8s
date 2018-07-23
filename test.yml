@@ -1,0 +1,30 @@
+# ---  
+#  - hosts: localhost
+#    tasks: 
+#      - name: Testing
+#        lineinfile: 
+#          create: true
+#          line: '{{ ansible_date_time.date }}'
+#          path: ~/tmp/results/create-vpc.json
+#          state: present
+---
+ - hosts: localhost
+
+   tasks:
+     - name: test
+       shell: cat /tmp/{{ ansible_date_time.date }}/3/testrail/cases/15/clusters
+       register: cluster_name
+
+     - debug:
+         msg: '{{ cluster_name.stdout }}'
+
+
+  #      shell: mkdir -p {{ ansible_date_time.date }}/test && touch {{ ansible_date_time.date }}/test/tester
+      #  vars: 
+      #    test: 'xyz'
+      #  lineinfile:
+      #    create: yes
+      #    state: present
+      #    path: "~/tmp/123/aws_cluster/pre-requisite.json"
+      #    line: '{{ ansible_date_time.date }}'
+       
