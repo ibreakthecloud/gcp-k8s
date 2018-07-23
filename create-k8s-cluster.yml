@@ -17,7 +17,7 @@
   tasks:
        - block:
              - name: Generating Random Cluster Name
-               shell: python3 random_name.py
+               shell: python random_name.py
                register: cluster_name
       
              - name: Creating Bucket
