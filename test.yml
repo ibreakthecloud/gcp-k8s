@@ -11,12 +11,14 @@
  - hosts: localhost
 
    tasks:
-     - name: test
-       shell: cat /tmp/{{ ansible_date_time.date }}/3/testrail/cases/15/clusters
-       register: cluster_name
+     - name: kubectl get no
+       shell: kubectl get nodes -o wide
+    #  - name: test
+    #    shell: cat /tmp/{{ ansible_date_time.date }}/3/testrail/cases/15/clusters
+    #    register: cluster_name
 
-     - debug:
-         msg: '{{ cluster_name.stdout }}'
+    #  - debug:
+    #      msg: '{{ cluster_name.stdout }}'
 
 
   #      shell: mkdir -p {{ ansible_date_time.date }}/test && touch {{ ansible_date_time.date }}/test/tester
